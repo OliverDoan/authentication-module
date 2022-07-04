@@ -1,28 +1,39 @@
-import { TextField } from '@material-ui/core';
+import React from 'react';
 import PropTypes from 'prop-types';
+import { TextField } from '@material-ui/core';
 import { Controller } from 'react-hook-form';
 
 InputField.propTypes = {
   form: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
+
   placeholder: PropTypes.string,
-  disabled: PropTypes.bool,
+  disable: PropTypes.bool,
 };
 
 function InputField(props) {
-  const { form, name, placeholder, disabled } = props;
-  //   const { errors, formState } = form;
-  //   const hasError = formState.touched[name] && errors[name];
-  //   console.log(errors[name], formState[name]);
+  const { form, name, placeholder, disable } = props;
+  const { control } = form;
+
   return (
     <Controller
       name={name}
-      control={form.control}
-      render={({ field }) => (
-        <TextField {...field} fullWidth placeholder={placeholder} disabled={disabled} />
+      control={control}
+      render={({ field: { onChange, onBlur, value, name }, fieldState: { invalid, error } }) => (
+        <TextField
+          margin="normal"
+          variant="outlined"
+          fullWidth
+          placeholder={placeholder}
+          error={invalid}
+          helperText={error?.message}
+          onChange={onChange}
+          onBlur={onBlur}
+          name={name}
+          value={value}
+          disabled={disable}
+        />
       )}
-      //   error={!!hasError}
-      //   helperText="Loi roi "
     ></Controller>
   );
 }
