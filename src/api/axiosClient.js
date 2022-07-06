@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const axiosClient = axios.create({
-  baseURL: 'http://54.255.217.227:8814/',
+  // baseURL: 'https://api.ezfrontend.com/',
+  baseURL: 'http://54.255.217.227:8814',
   headers: {
     'Content-Type': 'application/json',
   },
