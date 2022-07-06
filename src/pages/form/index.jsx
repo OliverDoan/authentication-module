@@ -7,9 +7,9 @@ import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
 import React from 'react';
 import SwipeableViews from 'react-swipeable-views';
-import LoginForm from '../../components/login-form/index';
-import RegisterForm from '../../components/register-form';
-import ResetPasswordForm from '../../components/reset-password-form';
+import FormLogin from '../../components/form-login';
+import FormRegister from '../../components/form-register';
+import FormResetPassword from '../../components/form-reset-password';
 Login.propTypes = {};
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -86,13 +86,13 @@ export default function Login() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <LoginForm />
+          <FormLogin />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          <RegisterForm />
+          <FormRegister />
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
-          <ResetPasswordForm />
+          <FormResetPassword />
         </TabPanel>
       </SwipeableViews>
     </div>

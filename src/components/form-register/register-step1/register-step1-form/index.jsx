@@ -1,16 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import InputField from '../../form-controls/InputField';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Button } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import PasswordField from '../../form-controls/PasswordField';
-import { Avatar, Button, LinearProgress, makeStyles, Typography } from '@material-ui/core';
-InformationFormRegister.propTypes = {
+import InputField from '../../../form-controls/InputField';
+FormStep1Register.propTypes = {
   onSubmit: PropTypes.func,
 };
 
-function InformationFormRegister(props) {
+function FormStep1Register(props) {
   const schema = yup.object().shape({
     phone: yup.string().required('Please enter .'),
 
@@ -45,7 +43,6 @@ function InformationFormRegister(props) {
     <div>
       <form onSubmit={form.handleSubmit(handleSubmit)}>
         <InputField name="phone" placeholder="Số điện thoại *" form={form}></InputField>
-        {/* <PasswordField name="password" label="Password *" form={form}></PasswordField> */}
         <InputField
           name="username"
           placeholder="Họ & tên người đại diện *"
@@ -67,4 +64,4 @@ function InformationFormRegister(props) {
   );
 }
 
-export default InformationFormRegister;
+export default FormStep1Register;

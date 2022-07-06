@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import InformationFormRegister from '../form-infirmation';
+import FormStep1Register from './register-step1-form';
 import { useDispatch } from 'react-redux';
-// import { register } from '../../features/Auth/userSlice';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { checkPhone } from '../../../features/Auth/userSlice';
-Formvalue.propTypes = {};
+Step1Register.propTypes = {};
 
-function Formvalue(props) {
+function Step1Register(props) {
   const dispatch = useDispatch();
   const handleLoginForm = async (values) => {
     try {
@@ -21,10 +20,10 @@ function Formvalue(props) {
     }
   };
   return (
-    <div>
-      <InformationFormRegister onSubmit={handleLoginForm} />
-    </div>
+    <>
+      <FormStep1Register onSubmit={handleLoginForm} />
+    </>
   );
 }
 
-export default Formvalue;
+export default Step1Register;

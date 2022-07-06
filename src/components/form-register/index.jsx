@@ -1,4 +1,3 @@
-import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
@@ -6,15 +5,13 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Stepper from '@material-ui/core/Stepper';
 import { makeStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import InformationFormRegister from './form-infirmation';
-import OTPFormRegister from './form-OTP';
-import PasswordFormRegister from './form-password';
-import SMSForm from './form-SMS';
 
-import Formvalue from './form-value';
+import Step1Register from './register-step1';
+import Step2Register from './register-step2';
+import Step3Register from './register-step3';
+import Step4Register from './register-step4';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -58,20 +55,20 @@ const steps = ['1', '2', '3', '4'];
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <Formvalue />;
+      return <Step1Register />;
     case 1:
-      return <OTPFormRegister />;
+      return <Step2Register />;
     case 2:
-      return <SMSForm />;
+      return <Step3Register />;
     case 3:
-      return <PasswordFormRegister />;
+      return <Step4Register />;
 
     default:
       throw new Error('Unknown step');
   }
 }
 
-export default function RegisterForm() {
+export default function FormRegister() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
 
