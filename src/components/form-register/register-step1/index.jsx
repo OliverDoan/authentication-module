@@ -3,10 +3,14 @@ import PropTypes from 'prop-types';
 import FormStep1Register from './register-step1-form';
 import { useDispatch } from 'react-redux';
 import { unwrapResult } from '@reduxjs/toolkit';
-import { checkPhone } from '../../../features/Auth/userSlice';
-Step1Register.propTypes = {};
+import { checkPhone } from 'features/Auth/userSlice';
+// import { checkPhone } from '../../../features/Auth/userSlice';
+Step1Register.propTypes = {
+  handleNext: PropTypes.func,
+};
 
 function Step1Register(props) {
+  const { handleNext } = props;
   const dispatch = useDispatch();
   const handleLoginForm = async (values) => {
     try {
@@ -21,7 +25,7 @@ function Step1Register(props) {
   };
   return (
     <>
-      <FormStep1Register onSubmit={handleLoginForm} />
+      <FormStep1Register onSubmit={handleLoginForm} handleNext={handleNext} />
     </>
   );
 }
